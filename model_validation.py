@@ -65,6 +65,7 @@ def model_performance_plots(df):
     print(f'Brier Score: {brier_score:.2f}')
 
     # Calculating ECE
+    # Modified from guide: https://towardsdatascience.com/expected-calibration-error-ece-a-step-by-step-visual-explanation-with-python-code-c3e9aa12937d
     M=5
     bin_boundaries = np.linspace(0, 1, M + 1)
     bin_lowers = bin_boundaries[:-1]
@@ -177,6 +178,7 @@ def model_performance_plots(df):
 if __name__ == "__main__":
 
     # Creating an example dataframe to use an input in the function
+    # Status A is the event we are trying to predict in this scenario
     dataset = {'status_name': ['A', 'B', 'C', 'A', 'A', 'B', 'B', 'A', 'C', 'D', 'A', 'B', 'A', 'A', 'C', 'A', 'D', 'D', 'B'], 
             'probability_percent': [30.1, 39.2, 75.8, 70.2, 45.6, 0.1, 12.1, 90.1, 0.5, 67.3, 89.7, 21.3, 56.7, 91.5, 42.8, 66.4, 5.4, 15.1, 51.1]}
     df = pd.DataFrame(dataset)
