@@ -1,7 +1,6 @@
-
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.metrics import r2_score, roc_curve, roc_auc_score,brier_score_loss
+from sklearn.metrics import r2_score, roc_curve,roc_auc_score,brier_score_loss
 import statsmodels.api as sm
 import numpy as np
 from math import sqrt
@@ -86,8 +85,8 @@ def model_performance_plots(df):
             avg_confidence_in_bin = confidences[in_bin].mean()
             # Calculates |acc(Bm) - conf(Bm)| * (|Bm|/n) for bin m and add to the total ECE
             ece += np.abs(avg_confidence_in_bin - accuracy_in_bin) * prob_in_bin
-    print(ece)
-    
+    print(f'ECE: {ece[0]:.2f}')
+
     fig, ax = plt.subplots()
 
     # Plotting confidence intervals
