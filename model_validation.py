@@ -1,7 +1,6 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.patches as patches
 from sklearn.metrics import r2_score, roc_curve, roc_auc_score,brier_score_loss
 import statsmodels.api as sm
 import numpy as np
@@ -120,8 +119,6 @@ def model_performance_plots(df):
     plt.xlabel('Predicted Probability (%)')
     plt.ylabel('Rate (%)')
     plt.title('Calibration Plot for Prediction Model')
-    rect = patches.Rectangle((0.7, 0.8545), 0.2, 0.023, transform=fig.transFigure, facecolor='white', edgecolor='none')
-    fig.patches.append(rect)
     plt.ylim([-5, 105])
     plt.legend(loc='upper left')
     plt.savefig('calibrationplot'+'.svg')
